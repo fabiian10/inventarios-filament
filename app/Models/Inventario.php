@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class Departamentos extends Model
+class Inventario extends Model
 {
     use HasFactory, Notifiable;
-    protected $fillable = ['departamento', 'nombre_titular', 'tratamiento_titular', 'cargo_titular', 'prefijo', 'carpeta', 'ur'];
+    protected $fillable = ['unidad', 'area', 'fondo', 'seccion', 'serie', 'archivo'];
 }

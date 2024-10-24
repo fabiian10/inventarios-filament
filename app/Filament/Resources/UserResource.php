@@ -12,30 +12,35 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
 
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
     protected static ?string $navigationLabel = "Usuarios";
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?int $navigationSort = 2;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\DateTimePicker::make('email_verified_at'),
-                Forms\Components\TextInput::make('password')
-                    ->password()
-                    ->required()
-                    ->maxLength(255),
-            ]);
+                Section::make('Información personal')
+                    ->schema([
+                            Forms\Components\TextInput::make('name')
+                                ->required()
+                                ->maxLength(255),
+                            Forms\Components\TextInput::make('email')
+                                ->email()
+                                ->required()
+                                ->maxLength(255),
+                            Forms\Components\DateTimePicker::make('email_verified_at'),
+                            Forms\Components\TextInput::make('password')
+                                ->password()
+                                ->required()
+                                ->maxLength(255),
+                                ])
+                        ]);
     }
 
     public static function table(Table $table): Table

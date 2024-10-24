@@ -12,38 +12,45 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Filament\Forms\Components\Section;
 
 class CatalogosResource extends Resource
 {
     protected static ?string $model = Catalogos::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-clipboard-document-list';
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('oficina')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('titular')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('tratamiento')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('cargo')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('prefijo')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('carpeta')
-                    ->required()
-                    ->maxLength(255),
-                Forms\Components\TextInput::make('ur')
-                    ->required()
-                    ->maxLength(255),
+                Section::make('Registro en Catalogo')
+                    ->columns(2)
+                    ->schema([
+                //         // ...
+                        Forms\Components\TextInput::make('oficina')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('titular')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('tratamiento')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('cargo')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('prefijo')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('carpeta')
+                            ->required()
+                            ->maxLength(255),
+                        Forms\Components\TextInput::make('ur')
+                            ->required()
+                            ->maxLength(255),
+                    ])                
             ]);
     }
 
