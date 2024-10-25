@@ -18,8 +18,9 @@ class DepartamentosResource extends Resource
 {
     protected static ?string $model = Departamentos::class;
 
+    protected static ?string $navigationGroup = 'Directorio';
     protected static ?string $navigationIcon = 'heroicon-o-building-office';
-    protected static ?int $navigationSort = 5;
+    protected static ?int $navigationSort = 4;
 
     public static function form(Form $form): Form
     {

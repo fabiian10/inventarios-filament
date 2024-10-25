@@ -20,7 +20,7 @@ class InventarioResource extends Resource
     protected static ?string $model = Inventario::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-inbox-stack';
-    protected static ?int $navigationSort = 3;
+    protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form
     {
@@ -48,7 +48,10 @@ class InventarioResource extends Resource
                     ->acceptedFileTypes(['pdf'])
                     ->directory('pdfs')
                     ->preserveFilenames()
-                    ->avatar()
+                    ->acceptedFileTypes(['application/pdf'])
+                    ->panelLayout('grid')
+                    ->downloadable()
+                    ->deletable(false),
                     ]) 
             ]);
     }
